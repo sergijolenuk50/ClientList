@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SQLite;
 
 
 namespace WpfApp1olenukBD
@@ -30,8 +31,8 @@ namespace WpfApp1olenukBD
         }
         private void new_persons_Click(object sender, RoutedEventArgs e)
         {
-
-            NewContactWindow newContactWindow = new NewContactWindow();
+            Newperson newContactWindow = new Newperson();
+            //NewContactWindow newContactWindow = new NewContactWindow();
             newContactWindow.ShowDialog();
             GetContacts();
             
@@ -42,21 +43,21 @@ namespace WpfApp1olenukBD
             using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
             {
                 connection.CreateTable<Persons>();
-                contacts = connection.Table<Persons>().ToList().OrderBy(c => c.Name).ToList();
+                persons = connection.Table<Persons>().ToList().OrderBy(c => c.Name).ToList();
 
             }
 
 
-            if (contacts != null)
+            if (persons != null)
             {
-                contactsListView.ItemsSource = persons;
+                list.ItemsSource = persons;
             }
 
         }
 
         private void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Persons selectedContact = list.SelectedItem as Persons;
+            Persons? selectedContact = list.SelectedItem as Persons;
 
             if (selectedContact != null)
             {

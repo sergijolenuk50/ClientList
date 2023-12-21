@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,38 +9,57 @@ using System.Threading.Tasks;
 
 namespace WpfApp1olenukBD
 {
-    internal class Persons 
-        //: INotifyPropertyChanged
+    public class Persons 
     {
+        //: INotifyPropertyChanged
         //Newperson newperson = new Newperson();
+        [PrimaryKey, AutoIncrement]
 
-        public Persons() {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Mail { get; set; }
+        public string PhoneNumber { get; set; }
 
-           // InitializeComponent();
-        }
-        private string name;
-        private string mail;
-        private string phone_number;
-
-        // public event PropertyChangedEventHandler? PropertyChanged;
-
-        public string Name
+        public override string ToString()
         {
-            get { return name; }
-            set {  name = value;
-                //OnPropertyChanged();
-            }
-        } 
-        public string Mail 
-        {
-            get { return mail; }
-            set { mail = value; }
+            return $"{Name} - {Mail} - {PhoneNumber}";
         }
-        public string PhoneNumber
-        {
-            get { return phone_number; }
-            set { phone_number = value; }
-        }
+        //public Persons()
+        //{
+
+        //    InitializeComponent();
+        //}
+
+        //private string name;
+        //private string mail;
+        //private string phone_number;
+        ////[PrimaryKey, AutoIncrement]
+
+        ////private void InitializeComponent()
+        ////{
+        ////    throw new NotImplementedException();
+        ////}
+
+
+        //// public event PropertyChangedEventHandler? PropertyChanged;
+
+        //public string Name
+        //{
+        //    get { return name; }
+        //    set {  name = value;
+        //        //OnPropertyChanged();
+        //    }
+        //} 
+        //public string Mail 
+        //{
+        //    get { return mail; }
+        //    set { mail = value; }
+        //}
+        //public string PhoneNumber
+        //{
+        //    get { return phone_number; }
+        //    set { phone_number = value; }
+        //}
         //public event PropertyChangedEventHandler PropertyChanged;
 
         //private void OnPropertyChanged([CallerMemberName] string propName = null)

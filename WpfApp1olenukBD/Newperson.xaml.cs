@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.Common;
-//using System.Lite;
+using SQLite;
 
 namespace WpfApp1olenukBD
 {
@@ -48,15 +48,5 @@ namespace WpfApp1olenukBD
 
             Close();
         }
-
-       //public class Percons
-       // {
-       //     private
-       //     string Name;
-       //     string Mail;
-       //     int Phon_number;
-       //     void Percons(string name, string mail, int phon_number) { }
-       //     //public Percons(string name) { }
-       // }
     }
 }

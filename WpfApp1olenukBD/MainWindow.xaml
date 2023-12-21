@@ -8,19 +8,14 @@
         Title="Contact List" Height="450" Width="300">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+           
             
         </Grid.RowDefinitions>
         <Button x:Name="new_persons" Content="New PERSON" Click="new_persons_Click">
         </Button>
-        <Button Grid.Row="3" Content="View">
-        </Button>
-        <Button Grid.Row="4" Content="DELETE PERSON">
-        </Button>
+        
         <ListView x:Name="list" Grid.Row="1" SelectionChanged="list_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>

@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-//using SQLite;
+using SQLite;
 //using WpfApp1olenukBD.Data.Models;
 
 namespace WpfApp1olenukBD
@@ -22,7 +22,7 @@ namespace WpfApp1olenukBD
     public partial class ContactDetailsWindow : Window
     {
         Persons selectedContact;
-        public ContactDetailsWindow()
+        public ContactDetailsWindow(Persons selectedContact)
         {
             InitializeComponent();
             this.selectedContact = selectedContact;
@@ -34,8 +34,8 @@ namespace WpfApp1olenukBD
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             selectedContact.Name = nameTextBox.Text;
-            selectedContact.PhoneNumber = phoneTextBox.Text;
             selectedContact.Mail = emailTextBox.Text;
+            selectedContact.PhoneNumber = phoneTextBox.Text;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.dbPath))
             {
@@ -50,8 +50,8 @@ namespace WpfApp1olenukBD
         {
             using (SQLiteConnection conn = new SQLiteConnection(App.dbPath))
             {
-                conn.CreateTable<>();
-                conn.Delete(selectedContact);
+                conn.CreateTable<Persons>();
+                conn.Delete(selectedContact);     
             }
 
             Close();
